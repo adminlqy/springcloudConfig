@@ -1,0 +1,38 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 7001
+
+spring:
+  profiles: dev
+  application:
+     name: microservicecloud-config-eureka-client
+eureka:
+  instance:
+    hostname: wcsg1   #eureka服务端地址
+  client:
+    registerWithEureka: false     #false表示不向注册中心
+    fetchRegistry: false           #false表示自己端就是注册中心，职责就是维护服务实例不需要检索服务
+    serviceUrl:
+        defaultZone: http://wcsg2:7002/eureka/    #集群
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   #设置与Eureka Server交互的地址查询和注册服务都需要依赖这个地址
+
+---
+server:
+  port: 7001
+
+spring:
+  profiles:  
+  application:
+     name: microservicecloud-config-eureka-client
+eureka:
+  instance:
+    hostname: wcsg1   #eureka服务端地址
+  client:
+    registerWithEureka: false     #false表示不向注册中心
+    fetchRegistry: false           #false表示自己端就是注册中心，职责就是维护服务实例不需要检索服务
+    serviceUrl:
+        defaultZone: http://wcsg2:7002/eureka/    #集群
