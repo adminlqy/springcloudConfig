@@ -51,7 +51,7 @@ info:
     build.version: $project.version$
 
     
-    ---
+---
 
 server:
   port: 8001
